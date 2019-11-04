@@ -31,7 +31,9 @@ TareaCtrl.createTarea = (req, res, next) => {
 TareaCtrl.getTarea = (req, res, next) => {
   const {id} = req.params;
   Tarea.findById(id)
-  .then( tarea => res.render("edit", {tarea}))
+  .then( tarea => {res.render("edit", {tarea})
+              console.log(tarea);
+  })
   .catch( err => console.log(err));
 };
 
@@ -47,9 +49,8 @@ TareaCtrl.getTarea = (req, res, next) => {
 
 TareaCtrl.editTarea = (req, res, next) => {
   const id = req.params.id;
-  Tarea.update({_id: id}, req.body)
-    .then( () => {console.log("Tarea editada correctamente");
-    console.log(req.body);     })
+  Tarea.updateOne({_id: id}, req.body)
+    .then( () => console.log("Tarea editada correctamente"))
     .catch( err => console.log(err));
   res.redirect("/api/tareas/");
   // console.log("Parametros: " + JSON.stringify(req.params));
@@ -68,14 +69,10 @@ TareaCtrl.checkTarea = (req, res, next) => {
   Tarea.findById({_id: id})
     .then( (tarea) => {
       tarea.estado = !tarea.estado;
+      console.log("La tarea paso al estado " + tarea.estado);
       tarea.save();
     })
     .catch( err => console.log(err))
-  // var nuevoEstado = !tarea.estado;
-  // console.log("La tarea quedo en " + !tarea.estado);
-  // Tarea.updateOne({_id: id}, {"estado": !tarea.estado})
-  //   .then( () => console.log("El estado de la tarea paso a " + nuevoEstado))
-  //   .catch( err => console.log(err));
   res.redirect("/api/tareas/");
 }
 

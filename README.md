@@ -64,6 +64,13 @@ Peticion | Ruta | Descripción
 * **Angular v8.2.2**
 * **Bootstrap v4**
 
+## Errores para corregir
+
+ * Visualización de fechas.
+ * Parsear el formato de fechas de Mongo para que sean compatibles con el <input type="date" value="[documentoMongo.fecha]">
+ * Mostrar Ventana modal de confirmacion al usuario cada vez que borra una tarea o confirma la edición de una tarea.
+ * Informar con alerts de bootstrap (class="alert alert-success alert-info alert-warning añlert-danger") cuando se crea, edita o elimina una tarea. Actualemente se muestra por consola pero no se le informa al usuario.
+ * En caso de alguna falla de una ruta, codigo, etc, mostrar un 404 y redireccionar a pagina principal. 
 
 ## Node 🚀
 
