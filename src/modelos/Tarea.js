@@ -2,8 +2,8 @@
 
 const Schema = mongoose.Schema;
 
-//Biblioteca Schema de ta Fechas, numeros string booleanos
 const TareaSchema = new Schema({
+  // {type: Schema.Types.ObjectId }
   titulo: String,
   descripcion: String,
   fecha: {
@@ -17,4 +17,4 @@ const TareaSchema = new Schema({
 });
 
 // collections tareas
-module.exports =  mongoose.model('tarea', TareaSchema);
+module.exports =  mongoose.model('Tarea', TareaSchema);

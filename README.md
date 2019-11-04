@@ -3,21 +3,64 @@
 </h1>
 <h5 align="center">Universidad Tecnologica Nacional</h5>
 
-##### Materia: Técnicas y Tecnologías Avanzadas de Desarrollo de Software 2019 
+##### Materia: Técnicas y Tecnologías Avanzadas de Desarrollo de Software 2019
 
 # Trabajo practico de Backend
 
-## Entorno de desarrollo 🛠️
+## REST API
+
+ * Para iniciar la plicación, se debe ejecutar con NodeJS el archivo **src/app.js**
+
+Peticion | Ruta | Descripción
+--|--|--
+ GET  | /api/tareas | Pagina principal.
+ POST  | /api/tareas | Nueva tarea.
+ GET   | /api/tareas/:id | Encontrar tarea con su id.
+ PUT   | /api/tareas/:id | Modificar una tarea existente.
+ DELETE | /api/tareas/:id | Eliminar una tarea.
+ GET | /api/tareas/:id/completada | Cambiar tarea a estado "COMPLETADA".
+
+## Alcance
+
+### Funcionalidad
+
+ * La aplicación se trata de una agenda de tareas. Cada tarea tiene los atributos:
+ 	* **titulo**, tipo String.
+  	* **descripcion**, tipo String.
+   	* **fecha**, tipo Date.
+   	* **estado**, tipo Boolean.
+ * Desde la pagina principal, el usuario puede agregar una nueva tarea, modificar una existente o eliminarla.
+ * En caso de haber completado una tarea, el usuario tiene la opcion de cambiarla al estado "COMPLETADA".
+ * Cada vez que el usuario ingresa a la pagina principal, en ella se mostrar la lista de tareas existentes, con sus respectivos atributos y opciones para editar, eliminar o establecerla como completada.
+
+### Desarrollo
+
+ * La API esta desarrollada con un backend utilizando API REST y un frontend con la libreria **ejs** de node.
+ * El backend esta programado en **JavaScript** con **NodeJS**.
+ * Utiliza el framework/middleware **express** para la configuración basica de la aplicación.
+ * La persistencia se realiza utilizando el ODM **Mongoose** con una base de datos **MongoDB**.
+
+### Captura de la aplicación
+
+<h1 align="center">
+  <img src="assets/agenda.png" alt="logo_utn">
+</h1>
+<h5 align="center">Aplicación corriendo</h5>
+
+## Entorno 🛠️
 
 * **Node.js v10.16.3**
-    * Express 
+    * Express
     * Hotnode
     * Mongoose
     * Body Parser
+    * Method-override
+    * Ejs
+    * Morgan
+    * Cors
 * **Node Package Manager NPM v6.9.0**
 * **MongoDB v4**
-    * Compass
-    * MongoDB Shell
+    * Mongoose
 * **Angular v8.2.2**
 * **Bootstrap v4**
 
@@ -36,15 +79,15 @@ sudo apt-get install -y nodejs
 
 [Comandos basicos NPM ⚡️](https://vortexbird.com/comandos-basicos-de-npm/)
 
-** npm is distributed with Node.js- which means that when you download Node.js, you automatically get npm installed on your computer.**
-### Check that you have node and npm installed
+Npm is distributed with Node.js- which means that when you download Node.js, you automatically get npm installed on your computer.
+### Chequear versiones
 ```
 node -v
 npm -v
 ```
 
-####A note on versions
-npm is a **separate project from Node.js**, and tends to update more frequently. As a result, even if you’ve just downloaded Node.js (and therefore npm), **you’ll probably need to update your npm**. Luckily, npm knows how to update itself! Run:
+####Nota
+Npm is a **separate project from Node.js**, and tends to update more frequently. As a result, even if you’ve just downloaded Node.js (and therefore npm), **you’ll probably need to update your npm**. Luckily, npm knows how to update itself! Run:
 
 ```
 npm install npm@latest -g
@@ -80,13 +123,13 @@ npm install -g @angular/cli
 ```
 ng new my-app
 cd my-app
-ng serve –open 
+ng serve –open
 ```
 
 _The - -open (or just -o) option automatically opens your browser to http:/localhost:4200._
 
 
-#### Agregar un nuevo componente de "heroes" en angular 🔧
+#### Agregar un nuevo componente "heroes" en angular 🔧
 ```
 ng generate component heroes
 ```
@@ -116,7 +159,7 @@ _Object JSON example in MongoDB_
 ```
 {
    "_id": ObjectId(7df78ad8902c),
-   "title": "MongoDB Overview", 
+   "title": "MongoDB Overview",
    "description": "MongoDB is no sql database",
    "by": "tutorials point",
    "url": "http://www.tutorialspoint.com",
@@ -126,7 +169,7 @@ _Object JSON example in MongoDB_
 ```
 ## Autor
 
-* **Nicolas Mateucci** - *Trabajo Inicial* - [Github oficial ⚡️](https://github.com/nicomateucci)
+* **Nicolas Mateucci** - *Trabajo Practico TTADS Backend* - [Github oficial ⚡️](https://github.com/nicomateucci)
 
 --------------------------------------------------------
 
