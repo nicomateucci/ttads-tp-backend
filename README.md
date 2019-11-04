@@ -9,7 +9,7 @@
 
 ## REST API
 
- * Para iniciar la plicación, se debe ejecutar con NodeJS el archivo **src/app.js**
+ * Para iniciar la plicación, se debe ejecutar con NodeJS el archivo **src/server.js**
 
 Peticion | Ruta | Descripción
 --|--|--
@@ -86,7 +86,7 @@ node -v
 npm -v
 ```
 
-####Nota
+### Nota
 Npm is a **separate project from Node.js**, and tends to update more frequently. As a result, even if you’ve just downloaded Node.js (and therefore npm), **you’ll probably need to update your npm**. Luckily, npm knows how to update itself! Run:
 
 ```

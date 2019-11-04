@@ -25,7 +25,7 @@ TareaCtrl.createTarea = (req, res, next) => {
   tarea.save()
   .then( () => console.log("Tarea agregada correctamente"))
   .catch(err => console.log(err));
-  res.redirect("/");
+  res.redirect("/api/tareas");
 };
 
 TareaCtrl.getTarea = (req, res, next) => {
@@ -51,7 +51,7 @@ TareaCtrl.editTarea = (req, res, next) => {
     .then( () => {console.log("Tarea editada correctamente");
     console.log(req.body);     })
     .catch( err => console.log(err));
-  res.redirect("/");
+  res.redirect("/api/tareas/");
   // console.log("Parametros: " + JSON.stringify(req.params));
 };
 
@@ -60,7 +60,23 @@ TareaCtrl.deleteTarea = (req, res, next) => {
   Tarea.deleteOne({_id: id})
     .then( () => console.log("Tarea borrada correctamente"))
     .catch( err => console.log(err));
-  res.redirect("/");
+  res.redirect("/api/tareas/");
 };
+
+TareaCtrl.checkTarea = (req, res, next) => {
+  const id = req.params.id;
+  Tarea.findById({_id: id})
+    .then( (tarea) => {
+      tarea.estado = !tarea.estado;
+      tarea.save();
+    })
+    .catch( err => console.log(err))
+  // var nuevoEstado = !tarea.estado;
+  // console.log("La tarea quedo en " + !tarea.estado);
+  // Tarea.updateOne({_id: id}, {"estado": !tarea.estado})
+  //   .then( () => console.log("El estado de la tarea paso a " + nuevoEstado))
+  //   .catch( err => console.log(err));
+  res.redirect("/api/tareas/");
+}
 
 module.exports = TareaCtrl;

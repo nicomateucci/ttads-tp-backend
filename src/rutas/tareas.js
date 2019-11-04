@@ -7,6 +7,6 @@ router.post('/', tarea.createTarea);
 router.get('/:id', tarea.getTarea);
 router.put('/:id', tarea.editTarea);
 router.delete('/:id', tarea.deleteTarea);
-router.get('/:id/completada', tarea.deleteTarea);
+router.get('/:id/completada', tarea.checkTarea);
 
 module.exports = router;
