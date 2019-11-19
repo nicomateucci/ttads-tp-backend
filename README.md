@@ -7,6 +7,14 @@
 
 # Trabajo practico de Backend
 
+### Levantar servidor desde consola:
+```
+ git clone https://github.com/nicomateucci/ttads-tp-backend
+ cd ttads-tp-backend
+ node src/server.js
+ http://localhost:3000/api/tareas (En el navegador) 
+```
+
 ## REST API
 
  * Para iniciar la plicación, se debe ejecutar con NodeJS el archivo **src/server.js**
